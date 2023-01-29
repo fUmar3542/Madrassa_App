@@ -1,6 +1,8 @@
 package com.example.madrassah_app;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     EditText etName, etRollNo, etSabaq, etSabqi, etManzil;
-    Button btnSave, btnEdit, btnDelete;
+    Button btnSave, btnEdit, btnDelete, repo;
 
     DBHandler db;
     ListView listView;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btn_save);
         btnEdit = findViewById(R.id.btn_edit);
         btnDelete = findViewById(R.id.btn_delete);
+        repo = findViewById(R.id.btn_repository);
 
         db = new DBHandler(this);
         listView = findViewById(R.id.list_view);
@@ -85,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
                 etSabqi.setText("");
                 etManzil.setText("");
                 RefreshGrid();
+            }
+        });
+
+        repo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://github.com/fUmar3542/Quran_App/commits/main";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
             }
         });
     }
