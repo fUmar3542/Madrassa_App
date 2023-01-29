@@ -12,7 +12,7 @@
         android:hint="Name"
         android:inputType="text"
         android:maxLines="1"
-        android:minHeight="40dp" />
+        android:minHeight="30dp" />
 
     <EditText
         android:id="@+id/et_roll_no"
@@ -21,7 +21,7 @@
         android:hint="Roll Number"
         android:inputType="number"
         android:maxLines="1"
-        android:minHeight="40dp" />
+        android:minHeight="30dp" />
 
     <EditText
         android:id="@+id/et_sabaq"
@@ -30,7 +30,7 @@
         android:hint="Sabaq"
         android:inputType="text"
         android:maxLines="1"
-        android:minHeight="40dp" />
+        android:minHeight="30dp" />
 
     <EditText
         android:id="@+id/et_sabqi"
@@ -39,16 +39,16 @@
         android:hint="Sabqi"
         android:inputType="number"
         android:maxLines="1"
-        android:minHeight="40dp" />
+        android:minHeight="30dp" />
 
     <EditText
         android:id="@+id/et_manzil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Manzil"
-        android:inputType="text"
+        android:inputType="number"
         android:maxLines="1"
-        android:minHeight="40dp" />
+        android:minHeight="30dp" />
 
     <Button
         android:id="@+id/btn_save"

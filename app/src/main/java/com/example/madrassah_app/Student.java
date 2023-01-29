@@ -55,8 +55,8 @@ public class Student {
         this.manzil = manzil;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Student [name=" + name + ", rollNo=" + rollNo + ", isEnroll=" + isEnroll + "]";
-//    }
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", rollNo=" + rollNo + ", sabaq=" + sabaq + ", sabqi=" + sabqi + ", manzil=" + manzil + "]";
+    }
 }

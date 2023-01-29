@@ -1,5 +1,6 @@
 package com.example.madrassah_app;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -99,12 +100,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
-                String name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME));
-                String rollNo = cursor.getString(cursor.getColumnIndex(COLUMN_ROLLNO));
-                String sabaq = cursor.getString(cursor.getColumnIndex(COLUMN_SABAQ));
-                String sabqi = cursor.getString(cursor.getColumnIndex(COLUMN_SABQI));
-                String manzil = cursor.getString(cursor.getColumnIndex(COLUMN_MANZIL));
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
+                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME));
+                @SuppressLint("Range") String rollNo = cursor.getString(cursor.getColumnIndex(COLUMN_ROLLNO));
+                @SuppressLint("Range") String sabaq = cursor.getString(cursor.getColumnIndex(COLUMN_SABAQ));
+                @SuppressLint("Range") String sabqi = cursor.getString(cursor.getColumnIndex(COLUMN_SABQI));
+                @SuppressLint("Range") String manzil = cursor.getString(cursor.getColumnIndex(COLUMN_MANZIL));
                 students.add(new Student(name, rollNo, sabaq, sabqi, manzil));
             } while (cursor.moveToNext());
         }

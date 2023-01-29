@@ -5,14 +5,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,10 +54,13 @@ public class MainActivity extends AppCompatActivity {
                 Student student = new Student(name, rollNo, sabaq, sabqi, manzil);
                 db.insertStudent(student);
                 RefreshGrid();
+                etName.setText("");
+                etRollNo.setText("");
+                etSabaq.setText("");
+                etSabqi.setText("");
+                etManzil.setText("");
             }
         });
-
-
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,18 +106,5 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter arrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
         listView.setAdapter(arrayAdapter);
-
-
-
-//        ArrayAdapter<Student> adapter = new ArrayAdapter<Student>(this, android.R.layout.simple_list_item_1, students){
-//            @Override
-//            public View getView(int position, View convertView, ViewGroup parent) {
-//                View view = super.getView(position, convertView, parent);
-//                TextView text = (TextView) view.findViewById(android.R.id.text1);
-//                text.setText(students.get(position).toString());
-//                return view;
-//            }
-//        };
-//        listView.setAdapter(adapter);
     }
 }
