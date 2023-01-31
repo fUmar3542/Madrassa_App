@@ -15,10 +15,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     EditText etName, etRollNo, etSabaq, etSabqi, etManzil;
-    Button btnSave, btnEdit, btnDelete, repo;
+    Button btnSave, btnEdit, btnDelete, repo, view;
 
     DBHandler db;
-    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +32,9 @@ public class MainActivity extends AppCompatActivity {
         btnEdit = findViewById(R.id.btn_edit);
         btnDelete = findViewById(R.id.btn_delete);
         repo = findViewById(R.id.btn_repository);
+        view = findViewById(R.id.btn_view);
 
         db = new DBHandler(this);
-        listView = findViewById(R.id.list_view);
-        RefreshGrid();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Student student = new Student(name, rollNo, sabaq, sabqi, manzil);
                 db.insertStudent(student);
-                RefreshGrid();
                 etName.setText("");
                 etRollNo.setText("");
                 etSabaq.setText("");
                 etSabqi.setText("");
                 etManzil.setText("");
+                Toast.makeText(MainActivity.this, "Student added successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -70,10 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 String sabaq = etSabaq.getText().toString();
                 String sabqi = etSabqi.getText().toString();
                 String manzil = etManzil.getText().toString();
-
                 Student student = new Student(name, rollNo, sabaq, sabqi, manzil);
                 db.updateStudent(student);
-                RefreshGrid();
+                Toast.makeText(MainActivity.this, "Student edited successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -87,27 +84,31 @@ public class MainActivity extends AppCompatActivity {
                 etSabaq.setText("");
                 etSabqi.setText("");
                 etManzil.setText("");
-                RefreshGrid();
             }
         });
 
         repo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String url = "https://github.com/fUmar3542/Quran_App/commits/main";
-//                Intent i = new Intent(Intent.ACTION_VIEW);
-//                i.setData(Uri.parse(url));
-//                startActivity(i);
+                String url = "https://github.com/fUmar3542/Madrassa_App/commits/main";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
 
-                Intent intent = new Intent(MainActivity.this, Recycler.class);
-                startActivity(intent);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RefreshGrid();
             }
         });
     }
     public void RefreshGrid(){
-        List<Student> students = db.selectAllStudents();
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
-        listView.setAdapter(arrayAdapter);
+//        List<Student> students = db.selectAllStudents();
+//
+//        ArrayAdapter arrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
+        Intent intent = new Intent(MainActivity.this, Recycler.class);
+        startActivity(intent);
     }
 }
