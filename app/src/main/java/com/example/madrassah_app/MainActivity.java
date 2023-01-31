@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnSave, btnEdit, btnDelete, repo;
 
     DBHandler db;
-    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         repo = findViewById(R.id.btn_repository);
 
         db = new DBHandler(this);
-        listView = findViewById(R.id.list_view);
         RefreshGrid();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -94,20 +92,18 @@ public class MainActivity extends AppCompatActivity {
         repo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String url = "https://github.com/fUmar3542/Quran_App/commits/main";
-//                Intent i = new Intent(Intent.ACTION_VIEW);
-//                i.setData(Uri.parse(url));
-//                startActivity(i);
-
-                Intent intent = new Intent(MainActivity.this, Recycler.class);
-                startActivity(intent);
+                String url = "https://github.com/fUmar3542/Quran_App/commits/main";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
             }
         });
     }
     public void RefreshGrid(){
-        List<Student> students = db.selectAllStudents();
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
-        listView.setAdapter(arrayAdapter);
+//        List<Student> students = db.selectAllStudents();
+//
+//        ArrayAdapter arrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
+        Intent intent = new Intent(MainActivity.this, Recycler.class);
+        startActivity(intent);
     }
 }

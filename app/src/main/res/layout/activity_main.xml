@@ -12,7 +12,7 @@
         android:hint="Name"
         android:inputType="text"
         android:maxLines="1"
-        android:minHeight="30dp" />
+        android:minHeight="40dp" />
 
     <EditText
         android:id="@+id/et_roll_no"
@@ -21,7 +21,7 @@
         android:hint="Roll Number"
         android:inputType="number"
         android:maxLines="1"
-        android:minHeight="30dp" />
+        android:minHeight="40dp" />
 
     <EditText
         android:id="@+id/et_sabaq"
@@ -30,7 +30,7 @@
         android:hint="Sabaq"
         android:inputType="text"
         android:maxLines="1"
-        android:minHeight="30dp" />
+        android:minHeight="40dp" />
 
     <EditText
         android:id="@+id/et_sabqi"
@@ -39,7 +39,7 @@
         android:hint="Sabqi"
         android:inputType="number"
         android:maxLines="1"
-        android:minHeight="30dp" />
+        android:minHeight="40dp" />
 
     <EditText
         android:id="@+id/et_manzil"
@@ -48,49 +48,34 @@
         android:hint="Manzil"
         android:inputType="number"
         android:maxLines="1"
-        android:minHeight="30dp" />
-
-    <LinearLayout
+        android:minHeight="40dp" />
+    <Button
+        android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="165dp"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:layout_marginRight="10dp"/>
-        <Button
-            android:id="@+id/btn_edit"
-            android:layout_width="165dp"
-            android:layout_height="wrap_content"
-            android:text="Edit" />
-    </LinearLayout>
-
-    <LinearLayout
+        android:text="Save"
+        android:layout_marginRight="10dp"/>
+    <Button
+        android:id="@+id/btn_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Edit" />
 
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="165dp"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            android:layout_marginRight="10dp"/>
-
-        <Button
-            android:id="@+id/btn_repository"
-            android:layout_width="165dp"
-            android:layout_height="wrap_content"
-            android:text="Repository" />
-    </LinearLayout>
-
-
-    <ListView
-        android:id="@+id/list_view"
+    <Button
+        android:id="@+id/btn_delete"
         android:layout_width="match_parent"
-        android:layout_height="256dp" />
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_marginRight="10dp"/>
+    <Button
+        android:id="@+id/btn_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View All" />
+    <Button
+        android:id="@+id/btn_repository"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Repository" />
 
 </LinearLayout>
