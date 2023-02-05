@@ -6,13 +6,15 @@ public class Student {
     private String sabaq;
     private String sabqi;
     private String manzil;
+    private String date;
 
-    public Student(String name,String rollNo, String sabaq, String sabqi, String manzil) {
+    public Student(String name,String rollNo, String sabaq, String sabqi, String manzil, String date) {
         this.name = name;
         this.rollNo = rollNo;
         this.sabaq = sabaq;
         this.sabqi = sabqi;
         this.manzil = manzil;
+        this.date = date;
     }
 
     public String getName() {
@@ -55,8 +57,17 @@ public class Student {
         this.manzil = manzil;
     }
 
+    public String getDate() {
+        return this.date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+
     @Override
     public String toString() {
-        return "Student [Name=" + name + ", RollNo=" + rollNo + ", Sabaq=" + sabaq + ", Sabqi=" + sabqi + ", Manzil=" + manzil + "]";
+        return "Student [Name=" + name + ", RollNo=" + rollNo + ", Sabaq=" + sabaq + ", Sabqi=" + sabqi + ", Manzil=" + manzil + ", Date=" + date +"]";
     }
 }

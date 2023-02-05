@@ -10,7 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please enter valid data", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Student student = new Student(name, rollNo, sabaq, sabqi, manzil);
+                Calendar c = Calendar.getInstance();
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH) + 1;
+                int day = c.get(Calendar.DAY_OF_MONTH);
+                String currentDate = day + "-" + month + "-" + year;
+                Student student = new Student(name, rollNo, sabaq, sabqi, manzil, currentDate);
                 db.insertStudent(student);
                 etName.setText("");
                 etRollNo.setText("");
@@ -68,7 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 String sabaq = etSabaq.getText().toString();
                 String sabqi = etSabqi.getText().toString();
                 String manzil = etManzil.getText().toString();
-                Student student = new Student(name, rollNo, sabaq, sabqi, manzil);
+                Calendar c = Calendar.getInstance();
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH) + 1;
+                int day = c.get(Calendar.DAY_OF_MONTH);
+                String currentDate = day + "-" + month + "-" + year;
+                Student student = new Student(name, rollNo, sabaq, sabqi, manzil, currentDate);
                 db.updateStudent(student);
                 Toast.makeText(MainActivity.this, "Student edited successfully", Toast.LENGTH_SHORT).show();
             }
