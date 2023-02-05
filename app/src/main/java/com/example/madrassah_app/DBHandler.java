@@ -7,8 +7,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -21,6 +24,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_SABAQ = "sabaq";
     private static final String COLUMN_SABQI = "sabqi";
     private static final String COLUMN_MANZIL = "manzil";
+    private static final String COLUMN_DATE = "date";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -34,7 +38,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_ROLLNO + " TEXT,"
                 + COLUMN_SABAQ + " TEXT,"
                 + COLUMN_SABQI + " TEXT,"
-                + COLUMN_MANZIL + " TEXT"
+                + COLUMN_MANZIL + " TEXT,"
+                + COLUMN_DATE + " TEXT"
                 + ")";
         db.execSQL(sql);
     }
@@ -55,6 +60,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_SABAQ, student.getSabaq());
         values.put(COLUMN_SABQI, student.getSabqi());
         values.put(COLUMN_MANZIL, student.getManzil());
+        values.put(COLUMN_DATE, student.getDate());
 
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -68,6 +74,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_SABAQ, student.getSabaq());
         values.put(COLUMN_SABQI, student.getSabqi());
         values.put(COLUMN_MANZIL, student.getManzil());
+        values.put(COLUMN_DATE, student.getDate());
 
         db.update(TABLE_NAME, values, COLUMN_ROLLNO + " = ?", new String[] {student.getRollNo()});
         db.close();
@@ -106,7 +113,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 @SuppressLint("Range") String sabaq = cursor.getString(cursor.getColumnIndex(COLUMN_SABAQ));
                 @SuppressLint("Range") String sabqi = cursor.getString(cursor.getColumnIndex(COLUMN_SABQI));
                 @SuppressLint("Range") String manzil = cursor.getString(cursor.getColumnIndex(COLUMN_MANZIL));
-                students.add(new Student(name, rollNo, sabaq, sabqi, manzil));
+                @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex(COLUMN_DATE));
+                students.add(new Student(name, rollNo, sabaq, sabqi, manzil, date));
             } while (cursor.moveToNext());
         }
 

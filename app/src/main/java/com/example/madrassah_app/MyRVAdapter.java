@@ -35,6 +35,7 @@ class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAdapter.M
         holder.textViewSabaq.setText(holder.data.getSabaq());
         holder.textViewSabqi.setText(holder.data.getSabqi());
         holder.textViewManzil.setText(holder.data.getManzil());
+        holder.textViewDate.setText(holder.data.getDate());
     }
 
     @Override
@@ -49,6 +50,7 @@ class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAdapter.M
         TextView textViewSabaq;
         TextView textViewSabqi;
         TextView textViewManzil;
+        TextView textViewDate;
         Student data;
         public MyVH(@NonNull View itemView) {
             super(itemView);
@@ -57,6 +59,7 @@ class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAdapter.M
             textViewSabaq = itemView.findViewById(R.id.textViewSabaq);
             textViewSabqi = itemView.findViewById(R.id.textViewSabqi);
             textViewManzil = itemView.findViewById(R.id.textViewManzil);
+            textViewDate = itemView.findViewById(R.id.textViewDate);
         }
     }
 }
